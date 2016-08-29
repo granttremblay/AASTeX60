@@ -1640,15 +1640,27 @@ revtex4-1.cls^^J^^J}\stop
 %% for tables continuing over pages
 \usepackage{longtable}
 
-%% In response to request from AAS
- \usepackage[bookmarks=false,         % show bookmarks bar?
-     pdfnewwindow=true,      % links in new window
-     colorlinks=true,    % false: boxed links; true: colored links
-     linkcolor=cyan,     % color of internal links
-     citecolor=cyan,     % color of links to bibliography
-     filecolor=cyan,  % color of file links
-     urlcolor=cyan,      % color of external links
- ]{hyperref}
+%% ORIGINAL HYPERREF IMPLEMENTATION, commented out by G. Tremblay
+% \usepackage[bookmarks=false,         % show bookmarks bar?
+%     pdfnewwindow=true,      % links in new window
+%     colorlinks=true,    % false: boxed links; true: colored links
+%     linkcolor=cyan,     % color of internal links
+%     citecolor=cyan,     % color of links to bibliography
+%     filecolor=cyan,  % color of file links
+%     urlcolor=cyan,      % color of external links
+% ]{hyperref}
+
+%% Cyan links are sub-optimal for paper printing, see 
+%% https://github.com/AASJournals/AASTeX60/issues/17
+%% -G. Tremblay
+
+\usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref} 
+\usepackage[all]{hypcap} 
+\renewcommand*{\backref}[1]{[#1]}
+
+
+
+
 
 %% for editing changes
 \usepackage{xcolor}
